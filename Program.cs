@@ -9,11 +9,11 @@ namespace TechCraft
         {
             Console.WriteLine("Hello World!");
 
-            Item griff = new Item("Holzgriff", 0.05f, Material.WOOD);
-            Item klinge = new Item("Klinge", 0.1f, Material.METAL);
-            Item messer = new Item("Messer", new Item[] { griff, klinge });
+            Item griff = new("Holzgriff", 0.05f, Material.WOOD);
+            Item klinge = new("Klinge", 0.1f, Material.METAL);
+            Item messer = new("Messer", new Item[] { griff, klinge });
 
-            Player dennis = new Player("Dennis");
+            Player dennis = new("Dennis");
             bool success = dennis.Backpack.StoreItem(messer);
             Console.WriteLine(success);
 
