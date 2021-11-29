@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace TechCraft.model
 {
-    class Player
+    class Player : MovableEntity
     {
-        public string Name { get; }
-        public int Health { get; }
-        public int MaxHealth { get; } = 100;
+        public string Name { get; protected set; }
+        public int Health { get; protected set; }
+        public int MaxHealth { get; protected set; } = 100;
         
-        public int Hunger { get; }
-        public int MaxHunger { get; } = 100;
-        public int Thirst { get; }
-        public int MaxThirst { get; } = 100;
+        public int Hunger { get; protected set; }
+        public int MaxHunger { get; protected set; } = 100;
+        public int Thirst { get; protected set; }
+        public int MaxThirst { get; protected set; } = 100;
 
-        public Inventory Backpack { get; }
+        public Inventory Backpack { get; protected set; }
 
         public Player(string name)
         {
