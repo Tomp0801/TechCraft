@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace TechCraft.model
 {
-    enum Direction
+    public enum Direction
     {
         NORTH, WEST, SOUTH, EAST
     }
-    class MovableEntity : FieldItem
+    public class MovableEntity : FieldItem
     {
         public bool Move(Direction dir)
         {

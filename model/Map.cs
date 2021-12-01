@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TechCraft.model
 {
-    class Position
+    public class Position
     {
         public uint X { get; set; }
         public uint Y { get; set; }
@@ -16,7 +16,7 @@ namespace TechCraft.model
             Y = y;
         }
     }
-    class Map
+    public class Map
     {
         public Field[,] Fields;
         public int Width { get; }

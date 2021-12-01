@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TechCraft.model
 {
-    class Material
+    public class Material
     {
         public string Name { get; }
         public float Hardness { get; }

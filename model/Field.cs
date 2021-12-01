@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace TechCraft.model
 {
-    class Field
+    public class Field
     {
         public FieldItem Item { get; set; }
         public Field()
         {
-
         }
     }
 }

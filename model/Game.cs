@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TechCraft.model
 {
-    class Game
+    public class Game
     {
         public Player MainPlayer { get; }
         public Map World { get; }
@@ -39,7 +39,6 @@ namespace TechCraft.model
                     success = false;
                     break;
             }
-
             return success;
         }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TechCraft.model
 {
-    enum InteractionType
+    public enum InteractionType
     {
         CONSUME, BREAK_DOWN, BURN
     }

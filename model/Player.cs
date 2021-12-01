@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TechCraft.model
 {
-    class Player : MovableEntity
+    public class Player : MovableEntity
     {
         public string Name { get; protected set; }
         public int Health { get; protected set; }

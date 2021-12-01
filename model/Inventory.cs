@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TechCraft.model
 {
-    class Inventory
+    public class Inventory
     {
         public int Volume { get; }
 

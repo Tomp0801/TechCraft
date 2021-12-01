@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TechCraft.model
 {
-    class FieldItem
+    public class FieldItem
     {
         public Position Pos { get; private set; }
         public Map CurrentMap { get; private set; }

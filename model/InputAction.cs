@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TechCraft.model
 {
-    enum InputAction
+    public enum InputAction
     {
         MOVE_NORTH, MOVE_SOUTH, MOVE_WEST, MOVE_EAST, PICK_UP, NONE
     }
