@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace TechCraft.model
 {
-    class Field
+    enum InputAction
     {
-        public FieldItem Item { get; set; }
-        public Field()
-        {
-
-        }
+        MOVE_NORTH, MOVE_SOUTH, MOVE_WEST, MOVE_EAST, PICK_UP, NONE
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TechCraft.model
 {
-    class Item
+    class Item : FieldItem
     {
         public string Name { get; }
 
