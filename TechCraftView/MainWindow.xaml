@@ -5,9 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TechCraftView"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
-        KeyDown="DockPanel_KeyDown">
+        Title="Tech Craft (pre alpha)"
+        KeyDown="DockPanel_KeyDown" >
     <DockPanel>
-        <Grid x:Name="center"></Grid>
+        <Grid DockPanel.Dock="Top" MinHeight="40" Background="AntiqueWhite" HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="FontSize" Value="24"/>
+                </Style>
+            </Grid.Resources>
+            <StackPanel Orientation="Horizontal" Margin="5" Grid.Row="0" Grid.Column="0">
+                <Label x:Name="playerName" FontSize="24">Unbekannter Spieler</Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center">
+                <Label>Hunger: </Label>
+                <Label x:Name="playerHunger">100</Label>
+                <Label>/</Label>
+                <Label x:Name="playerHungerMax">100</Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  Margin="5" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center">
+                <Label>Durst</Label>
+                <Label x:Name="playerThirst">100</Label>
+                <Label>/</Label>
+                <Label x:Name="playerThirstMax">100</Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  Margin="5" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right">
+                <Label>Gesundheit</Label>
+                <Label x:Name="playerHealth">100</Label>
+                <Label>/</Label>
+                <Label x:Name="playerHealthMax">100</Label>
+            </StackPanel>
+        </Grid>
+        <StackPanel DockPanel.Dock="Bottom" MinHeight="200" Background="Lavender"></StackPanel>
+        <StackPanel DockPanel.Dock="Left" MinWidth="200" Background="Aqua"></StackPanel>
+        <StackPanel DockPanel.Dock="Right" MinWidth="200" Background="Aqua"></StackPanel>
+        <Grid x:Name="center" MinHeight="1200" MinWidth="1600" Background="Green"></Grid>
     </DockPanel>
 </Window>
