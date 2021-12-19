@@ -32,11 +32,23 @@ namespace TechCraftView
             StartGame();
         }
 
+        public void LoadPlayerData(Player player)
+        {
+            playerName.Content = player.Name;
+            playerHealth.Content = player.Health;
+            playerHealthMax.Content = player.MaxHealth;
+            playerHunger.Content = player.Hunger;
+            playerHungerMax.Content = player.MaxHunger;
+            playerThirst.Content = player.Thirst;
+            playerThirstMax.Content = player.MaxThirst;
+        }
+
         public void StartGame()
         {
             game = TestProgram.Test();
             map = new(game.World);
             center.Children.Add(map);
+            LoadPlayerData(game.MainPlayer);
             map.SetPlayer(game.MainPlayer.Pos.X, game.MainPlayer.Pos.Y, game.MainPlayer);
         }
 
