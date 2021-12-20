@@ -8,9 +8,9 @@ namespace ITechCraft
 {
     public interface IMap
     {
-        public IField[,] Fields { get; protected set; }
-        public int Width { get; protected set; }
-        public int Height { get; protected set; }
+        public IField[,] Fields { get; }
+        public int Width { get; }
+        public int Height { get; }
 
         public void PlaceItem(IFieldItem item, uint x, uint y);
         public bool MoveItem(Position pos, Direction dir);

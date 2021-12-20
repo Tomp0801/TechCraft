@@ -4,14 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ITechCraft;
 
 namespace TechCraft.model
 {
-    public class FieldItem
+    public class FieldItem : IFieldItem
     {
-        public Position Pos { get; private set; }
-        public Map CurrentMap { get; private set; }
-        public void Spawn(Map map, uint x, uint y)
+        public Position Pos { get; protected set; }
+        public IMap CurrentMap { get; protected set; }
+
+        public void Spawn(IMap map, uint x, uint y)
         {
             Pos = new Position(x, y);
             map.PlaceItem(this, x, y);

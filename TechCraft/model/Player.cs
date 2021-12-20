@@ -7,7 +7,7 @@ using ITechCraft;
 
 namespace TechCraft.model
 {
-    public class Player : MovableEntity
+    public class Player : MovableEntity, IPlayer
     {
         public string Name { get; protected set; }
         public int Health { get; protected set; }
@@ -18,7 +18,7 @@ namespace TechCraft.model
         public int Thirst { get; protected set; }
         public int MaxThirst { get; protected set; } = 100;
 
-        public Inventory Backpack { get; protected set; }
+        public IInventory Backpack { get; protected set; }
 
         public Player(string name)
         {
@@ -29,9 +29,9 @@ namespace TechCraft.model
             Backpack = new Inventory(100);
         }
 
-        public void Interact(Item item, InteractionType type)
+        public void Interact(IItem item, InteractionType type)
         {
-            Item[] retItems = item.Interact(type);
+            IItem[] retItems = item.Interact(type);
             Backpack.Remove(item);
             foreach (Item it in retItems)
                 Backpack.StoreItem(it);

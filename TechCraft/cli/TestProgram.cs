@@ -1,22 +1,26 @@
-﻿using ITechCraft;
-using System;
-using TechCraft.model;
+﻿using System;
+using ITechCraft;
 
 namespace TechCraft.cli
 {
     public static class TestProgram
     {
-        public static Game Test()
+        public static IGame Test()
         {
-            Item griff = new("Holzgriff", 0.05f, Material.WOOD);
-            Item klinge = new("Klinge", 0.1f, Material.METAL);
-            Item messer = new("Messer", new Item[] { griff, klinge });
+            IItem griff = new TechCraft.model.Item("Holzgriff", 0.05f, Material.WOOD);
+            IItem klinge = new TechCraft.model.Item("Klinge", 0.1f, Material.METAL);
+            IItem messer = new TechCraft.model.Item("Messer", new IItem[] { griff, klinge });
 
-            Player dennis = new("Dennis");
-            Game game = new(dennis);
+            IPlayer dennis = new model.Player("Dennis");
+            IGame game = new model.Game(dennis);
 
             game.World.PlaceItem(messer, 0, 4);
             return game;
+        }
+
+        public static void main()
+        {
+            IGame game = Test();
         }
     }
 }

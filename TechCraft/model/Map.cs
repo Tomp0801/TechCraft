@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 namespace TechCraft.model
 {
     
-    public class Map
+    public class Map : IMap
     {
-        public Field[,] Fields;
-        public int Width { get; }
-        public int Height { get; }
+        public IField[,] Fields { get; protected set; }
+        public int Width { get; protected set; }
+        public int Height { get; protected set; }
 
         public Map(int width, int height)
         {
@@ -29,7 +29,7 @@ namespace TechCraft.model
             }
         }
 
-        public void PlaceItem(FieldItem item, uint x, uint y)
+        public void PlaceItem(IFieldItem item, uint x, uint y)
         {
             if (x < Width && y < Height)
             {
@@ -46,7 +46,7 @@ namespace TechCraft.model
         }
         public bool MoveItem(uint x, uint y, Direction dir)
         {
-            FieldItem item = Fields[x, y].Item;
+            IFieldItem item = Fields[x, y].Item;
             bool failed = false;
             switch (dir)
             {

@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 
 namespace TechCraft.model
 {
-    public class Item : FieldItem
+    public class Item : FieldItem, IItem
     {
-        public string Name { get; }
+        public string Name { get; protected set; }
 
-        protected Item[] subItems;
+        protected IItem[] subItems;
 
-        public float Weight { get; }
-        public float Volume { get; }
+        public float Weight { get; protected set; }
+        public float Volume { get; protected set; }
+
         protected Material material;
         
         public Item()
@@ -30,18 +31,18 @@ namespace TechCraft.model
             this.material = material;
         }
 
-        public Item(string name, Item[] subItems)
+        public Item(string name, IItem[] subItems)
         {
             Name = name;
             this.subItems = subItems;
-            foreach (Item it in subItems)
+            foreach (IItem it in subItems)
             {
                 Volume += it.Volume;
                 Weight += it.Weight;
             }
         }
 
-        public Item[] Interact(InteractionType type)
+        public IItem[] Interact(InteractionType type)
         {
             Item[] retItems;
             switch (type)

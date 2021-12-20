@@ -8,8 +8,8 @@ namespace ITechCraft
 {
     public interface IFieldItem
     {
-        public Position Pos { get; protected set; }
-        public IMap CurrentMap { get; protected set; }
+        public Position Pos { get; }
+        public IMap CurrentMap { get; }
         public void Spawn(IMap map, uint x, uint y);
     }
 }

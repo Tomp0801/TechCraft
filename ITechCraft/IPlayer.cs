@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace ITechCraft
 {
-    public interface IPlayer
+    public interface IPlayer : IMovableEntity
     {
-        public string Name { get; protected set; }
-        public int Health { get; protected set; }
-        public int MaxHealth { get; protected set; }
-        public int Hunger { get; protected set; }
-        public int MaxHunger { get; protected set; }
-        public int Thirst { get; protected set; }
-        public int MaxThirst { get; protected set; }
+        public string Name { get; }
+        public int Health { get; }
+        public int MaxHealth { get; }
+        public int Hunger { get; }
+        public int MaxHunger { get; }
+        public int Thirst { get; }
+        public int MaxThirst { get; }
 
-        public IInventory Backpack { get; protected set; }
+        public IInventory Backpack { get; }
         public void Interact(IItem item, InteractionType type);
 
     }

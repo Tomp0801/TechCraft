@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TechCraft.model
 {
-    public class MovableEntity : FieldItem
+    public class MovableEntity : FieldItem, IMovableEntity
     {
         public bool Move(Direction dir)
         {
