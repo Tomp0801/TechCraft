@@ -15,6 +15,7 @@ namespace ITechCraft
         public int MaxHunger { get; }
         public int Thirst { get; }
         public int MaxThirst { get; }
+        public bool Alive { get; }
 
         public IInventory Backpack { get; }
         public void Interact(IItem item, InteractionType type);

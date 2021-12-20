@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Threading;
 using ITechCraft;
 
@@ -10,12 +11,10 @@ namespace TechCraft.cli
         {
             IItem griff = new TechCraft.model.Item("Holzgriff", 0.05f, Material.WOOD);
             IItem klinge = new TechCraft.model.Item("Klinge", 0.1f, Material.METAL);
-            IItem messer = new TechCraft.model.Item("Messer", new IItem[] { griff, klinge });
 
             model.Player dennis = new model.Player("Dennis");
             IGame game = new model.Game(dennis);
 
-            game.World.PlaceItem(messer, 0, 4);
             return game;
         }
 
@@ -24,12 +23,18 @@ namespace TechCraft.cli
             IGame game = Test();
 
             game.Start();
+            game.MainPlayer.PropertyChanged += onPropertyChanged;
 
             while (true)
             {
-                Console.WriteLine(game.MainPlayer);
+                
                 Thread.Sleep(1000);
             }
+        }
+
+        static void onPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            Console.WriteLine(e.PropertyName);
         }
     }
 }

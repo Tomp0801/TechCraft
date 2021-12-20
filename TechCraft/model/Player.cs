@@ -13,6 +13,7 @@ namespace TechCraft.model
         private int _hunger, _maxHunger = 100;
         private int _health, _maxHealth = 100;
         private int _thirst, _maxThirst = 100;
+        private bool _alive = true;
 
         protected int myTicks = 0;
         protected const int TICK_PERIOD = 10;
@@ -40,13 +41,23 @@ namespace TechCraft.model
             myTicks += ticks;
             if (myTicks >= TICK_PERIOD)
             {
-                // update stati
-                if (Hunger > 0) Hunger -= 1;
-                if (Thirst > 0) Thirst -= 1;
-                // more health, if full hunger
-                if (Hunger == MaxHunger * 0.9 && Health < MaxHealth)
+                // is player still alive?
+                if (Health == 0)
                 {
-                    Health += 1;
+
+                }
+                else
+                {
+                    // update hunger and thirst; if none left, reduce health
+                    if (Hunger > 0) Hunger -= 1;
+                    else Health -= 1;
+                    if (Thirst > 0) Thirst -= 1;
+                    else Health -= 1;
+                    // more health, if full hunger
+                    if (Hunger == MaxHunger * 0.9 && Health < MaxHealth)
+                    {
+                        Health += 1;
+                    }
                 }
                 myTicks -= TICK_PERIOD - 1;
             }
@@ -125,6 +136,15 @@ namespace TechCraft.model
             {
                 _maxThirst = value;
                 RaisePropertyChanged("MaxThirst");
+            }
+        }
+        public bool Alive
+        {
+            get { return _alive; }
+            protected set
+            {
+                _alive = value;
+                RaisePropertyChanged("Alive");
             }
         }
     }
