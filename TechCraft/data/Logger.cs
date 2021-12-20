@@ -16,6 +16,13 @@ namespace TechCraft.data
     {
         public static string LogFile = "game.log";
         public static LogType Level = LogType.INFO;
+        protected static Logger Instance = null;
+
+        public static Logger GetLogger()
+        {
+            if (Instance == null) Instance = new Logger();
+            return Instance;
+        }
 
         public void Log(string text, LogType type=LogType.INFO)
         {
@@ -26,10 +33,10 @@ namespace TechCraft.data
             }
         }
 
-        public void LogInfo(string text) { Log(text, LogType.INFO); }
-        public void LogDebug(string text) { Log(text, LogType.DEBUG); }
-        public void LogWarning(string text) { Log(text, LogType.WARNING); }
-        public void LogError(string text) { Log(text, LogType.ERROR); }
+        public static void LogInfo(string text) { GetLogger().Log(text, LogType.INFO); }
+        public static void LogDebug(string text) { GetLogger().Log(text, LogType.DEBUG); }
+        public static void LogWarning(string text) { GetLogger().Log(text, LogType.WARNING); }
+        public static void LogError(string text) { GetLogger().Log(text, LogType.ERROR); }
 
         private static string LogTypeToString(LogType type)
         {
@@ -41,5 +48,6 @@ namespace TechCraft.data
                 case LogType.ERROR: return "ERROR";
                 default: return "UNKNOWN";
             }
+        }
     }
 }

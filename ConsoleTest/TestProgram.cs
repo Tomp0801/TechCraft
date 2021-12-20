@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Threading;
 using ITechCraft;
+using TechCraft.data;
 
 namespace TechCraft.cli
 {
@@ -20,16 +21,19 @@ namespace TechCraft.cli
 
         static void Main(string[] args)
         {
-            IGame game = Test();
+            ItemHandler ih = new ItemHandler();
 
-            game.Start();
-            game.MainPlayer.PropertyChanged += onPropertyChanged;
+            //model.Item griff = new TechCraft.model.Item("Holzgriff", 0.05f, Material.WOOD);
+            //ItemHandler.StoreSingleItem(griff, "griff.json");
 
-            while (true)
+
+            ih.LoadSingleItem("griff.json");
+            Console.WriteLine(ih.Items.Count + " items");
+            foreach (model.Item it in ih.Items)
             {
-                Console.WriteLine(game.MainPlayer);
-                Thread.Sleep(1000);
+                Console.WriteLine(it.Name);
             }
+            
         }
 
         static void onPropertyChanged(object sender, PropertyChangedEventArgs e)
