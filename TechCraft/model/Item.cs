@@ -11,7 +11,7 @@ namespace TechCraft.model
     {
         public string Name { get; protected set; }
 
-        protected Item[] subItems;
+        protected IItem[] subItems;
 
         public float Weight { get; protected set; }
         public float Volume { get; protected set; }
@@ -31,11 +31,11 @@ namespace TechCraft.model
             this.material = material;
         }
 
-        public Item(string name, Item[] subItems)
+        public Item(string name, IItem[] subItems)
         {
             Name = name;
             this.subItems = subItems;
-            foreach (Item it in subItems)
+            foreach (IItem it in subItems)
             {
                 Volume += it.Volume;
                 Weight += it.Weight;

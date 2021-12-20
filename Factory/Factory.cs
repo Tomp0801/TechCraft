@@ -8,6 +8,6 @@ namespace Factory
 {
     public class Factory
     {
-        // TODO impl
+        
     }
 }
