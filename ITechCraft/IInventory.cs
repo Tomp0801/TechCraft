@@ -8,9 +8,9 @@ namespace ITechCraft
 {
     public interface IInventory
     {
-        public int Volume { get; protected set; }
+        public int Volume { get; }
 
-        public float FreeVolume { get; protected set}
+        public float FreeVolume { get; }
 
         public IItem GetItem(int index);
 

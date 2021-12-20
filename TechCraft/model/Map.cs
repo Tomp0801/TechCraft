@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ITechCraft;
 
 namespace TechCraft.model
 {
     
-    public class Map
+    public class Map : IMap
     {
         public Field[,] Fields;
         public int Width { get; }

@@ -8,7 +8,7 @@ namespace ITechCraft
 {
     public interface IGame
     {
-        public IMap World { get; protected set; }
-        public IPlayer MainPlayer { get; protected set; }
+        public IMap World { get; }
+        public IPlayer MainPlayer { get; }
     }
 }

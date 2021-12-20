@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ITechCraft;
 
 namespace TechCraft.model
 {
-    public class Inventory
+    public class Inventory : IInventory
     {
         public int Volume { get; }
 

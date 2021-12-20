@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ITechCraft;
 
 namespace TechCraft.model
 {
-    public class Game
+    public class Game : IGame
     {
         public Player MainPlayer { get; }
         public Map World { get; }

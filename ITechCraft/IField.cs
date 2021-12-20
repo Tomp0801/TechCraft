@@ -8,6 +8,6 @@ namespace ITechCraft
 {
     public interface IField
     {
-        public IFieldItem Item { get; protected set; }
+        public IFieldItem Item { get; }
     }
 }

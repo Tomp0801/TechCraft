@@ -7,7 +7,7 @@ using ITechCraft;
 
 namespace TechCraft.model
 {
-    public class Player : MovableEntity
+    public class Player : IPlayer
     {
         public string Name { get; protected set; }
         public int Health { get; protected set; }

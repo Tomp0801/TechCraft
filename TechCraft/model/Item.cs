@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ITechCraft;
 
 namespace TechCraft.model
 {
-    public class Item : FieldItem
+    public class Item : IItem
     {
         public string Name { get; }
 

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ITechCraft
 {
-    public interface IItem
+    public interface IItem : IFieldItem
     {
-        public string Name { get; protected set; }
-        public float Weight { get; protected set; }
-        public float Volume { get; protected set; }
+        public string Name { get; }
+        public float Weight { get; }
+        public float Volume { get; }
         public IItem[] Interact(InteractionType type);
     }
 }
