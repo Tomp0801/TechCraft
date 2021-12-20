@@ -57,8 +57,8 @@ namespace TechCraftView.view
         {
             playerLabel.Content = player.Name;
             BitmapImage bitmap = new BitmapImage();
-            bitmap.BeginInit(); //TODO
-            bitmap.UriSource = new Uri(@"image/player.png", UriKind.Relative);
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri("assets/character.png", UriKind.RelativeOrAbsolute);
             bitmap.EndInit();
             playerImage.Source = bitmap;
         }

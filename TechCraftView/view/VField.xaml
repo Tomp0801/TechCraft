@@ -6,14 +6,25 @@
              xmlns:local="clr-namespace:TechCraftView.view"
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="50">
-    <Border BorderBrush="Gray" Background="LightGray" BorderThickness="2" >
-        <StackPanel Background="Green" Orientation="Vertical">
-            <Label x:Name="itemLabel"></Label>
-            <StackPanel Orientation="Vertical">
-                <Image x:Name="playerImage"></Image>
-                <Label x:Name="playerLabel"></Label>
-            </StackPanel>
-            
+    <Border BorderBrush="Gray" Background="LightGray" BorderThickness="1" >
+        <StackPanel>
+            <Canvas Width="50" Height="50">
+                <Image Source="/assets/grass.png" Width="50" Height="50" Canvas.Top="-1">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black"/>
+                            <GradientStop Color="#FFC95454" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <StackPanel Orientation="Vertical">
+                    <Label x:Name="itemLabel"></Label>
+                    <StackPanel Orientation="Vertical">
+                        <Image x:Name="playerImage"></Image>
+                        <Label x:Name="playerLabel"></Label>
+                    </StackPanel>
+                </StackPanel>
+            </Canvas>
         </StackPanel>
     </Border>
 </UserControl>
