@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ITechCraft;
 
 namespace TechCraft.model
 {
@@ -18,6 +17,11 @@ namespace TechCraft.model
             Pos = new Position(x, y);
             map.PlaceItem(this, x, y);
             CurrentMap = map;
+        }
+
+        public virtual void Update(int ticks)
+        {
+
         }
     }
 }
