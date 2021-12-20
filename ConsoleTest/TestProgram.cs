@@ -19,7 +19,7 @@ namespace TechCraft.cli
             return game;
         }
 
-        public static void main()
+        static void Main(string[] args)
         {
             IGame game = Test();
 

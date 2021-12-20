@@ -18,5 +18,10 @@ namespace TechCraft.model
             map.PlaceItem(this, x, y);
             CurrentMap = map;
         }
+
+        public virtual void Update(int ticks)
+        {
+
+        }
     }
 }

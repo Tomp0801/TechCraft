@@ -10,5 +10,7 @@ namespace ITechCraft
     {
         public IMap World { get; }
         public IPlayer MainPlayer { get; }
+
+        public void Start();
     }
 }
