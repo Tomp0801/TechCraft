@@ -6,16 +6,7 @@ using System.Threading.Tasks;
 
 namespace TechCraft.model
 {
-    public class Position
-    {
-        public uint X { get; set; }
-        public uint Y { get; set; }
-        public Position(uint x, uint y)
-        {
-            X = x;
-            Y = y;
-        }
-    }
+    
     public class Map
     {
         public Field[,] Fields;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ITechCraft;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +7,6 @@ using System.Threading.Tasks;
 
 namespace TechCraft.model
 {
-    public enum Direction
-    {
-        NORTH, WEST, SOUTH, EAST
-    }
     public class MovableEntity : FieldItem
     {
         public bool Move(Direction dir)

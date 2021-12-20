@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TechCraft.model
+namespace ITechCraft
 {
-    public enum InteractionType
+    interface IMap
     {
-        CONSUME, BREAK_DOWN, BURN
     }
 }
