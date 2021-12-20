@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ITechCraft
 {
-    public interface IPlayer : IMovableEntity
+    public interface IPlayer : IMovableEntity, INotifyPropertyChanged
     {
-        public string Name { get; }
         public int Health { get; }
         public int MaxHealth { get; }
         public int Hunger { get; }

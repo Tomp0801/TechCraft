@@ -8,31 +8,11 @@ using ITechCraft;
 
 namespace TechCraft.model
 {
-    public class Player : MovableEntity, IPlayer , INotifyPropertyChanged
+    public class Player : MovableEntity, IPlayer
     {
-        public string Name { get; protected set; }
-
-        private int hunger;
-
-        public int Hunger
-        {
-            get
-            {
-                return hunger;
-            }
-            set
-            {
-                hunger = value;
-                RaisePropertyChanged("Hunger");
-            }
-        }
-
-        public int Health { get; protected set; }
-        public int MaxHealth { get; protected set; } = 100;
-        // public int Hunger { get; protected set; }
-        public int MaxHunger { get; protected set; } = 100;
-        public int Thirst { get; protected set; }
-        public int MaxThirst { get; protected set; } = 100;
+        private int _hunger, _maxHunger = 100;
+        private int _health, _maxHealth = 100;
+        private int _thirst, _maxThirst = 100;
 
         protected int myTicks = 0;
         protected const int TICK_PERIOD = 10;
@@ -89,6 +69,62 @@ namespace TechCraft.model
             if (handler != null)
             {
                 handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
+        // Properties
+        public int Hunger
+        {
+            get { return _hunger; }
+            protected set
+            {
+                _hunger = value;
+                RaisePropertyChanged("Hunger");
+            }
+        }
+        public int MaxHunger
+        {
+            get { return _maxHunger; }
+            protected set
+            {
+                _maxHunger = value;
+                RaisePropertyChanged("MaxHunger");
+            }
+        }
+        public int Health
+        {
+            get { return _health; }
+            protected set
+            {
+                _health = value;
+                RaisePropertyChanged("Health");
+            }
+        }
+        public int MaxHealth
+        {
+            get { return _maxHealth; }
+            protected set
+            {
+                _maxHealth = value;
+                RaisePropertyChanged("MaxHealth");
+            }
+        }
+        public int Thirst
+        {
+            get { return _thirst; }
+            protected set
+            {
+                _thirst = value;
+                RaisePropertyChanged("Thirst");
+            }
+        }
+        public int MaxThirst
+        {
+            get { return _maxThirst; }
+            protected set
+            {
+                _maxThirst = value;
+                RaisePropertyChanged("MaxThirst");
             }
         }
     }
