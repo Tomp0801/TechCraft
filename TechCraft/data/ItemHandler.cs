@@ -22,7 +22,8 @@ namespace TechCraft.data
             try
             {
                 string jsonString = File.ReadAllText(file);
-                item = JsonSerializer.Deserialize<Item>(jsonString);
+                JsonSerializerOptions options = new JsonSerializerOptions(JsonSerializerDefaults.General);
+                item = JsonSerializer.Deserialize<Item>(jsonString, options);
             } catch (IOException e)
             {
                 Logger.LogError(e.Message);

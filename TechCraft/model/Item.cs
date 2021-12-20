@@ -4,17 +4,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace TechCraft.model
 {
+    [Serializable]
     public class Item : IItem
     {
+        [JsonInclude]
         public string Name { get; protected set; }
-
-        protected IItem[] subItems;
+        [JsonInclude]
         public float Weight { get; protected set; }
+        [JsonInclude]
         public float Volume { get; protected set; }
 
+        // TODO serializing these
+        protected IItem[] subItems;
         protected Material material;
         
         public Item()
