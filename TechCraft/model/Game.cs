@@ -72,6 +72,8 @@ namespace TechCraft.model
         {
             ThreadStart start = new ThreadStart(run);
             gameThread = new Thread(start);
+            stop = false;
+            gameThread.Start();
         }
 
         protected void run()

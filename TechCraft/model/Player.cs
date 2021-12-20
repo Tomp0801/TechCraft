@@ -51,14 +51,16 @@ namespace TechCraft.model
                 {
                     Health += 1;
                 }
-                myTicks -= TICK_PERIOD;
+                myTicks -= TICK_PERIOD - 1;
             }
         }
 
         public override string ToString() 
         {
-            string retString = Name + " - Health: " + Health
-                + "\nInventory: " + Backpack;
+            string retString = Name + " - Health: " + Health;
+            retString += "\nHunger: " + Hunger;
+            retString += "\nThirst: " + Thirst;
+            retString += "\nInventory: " + Backpack;
 
             return retString;
         }

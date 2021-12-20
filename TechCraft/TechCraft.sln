@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechCraft", "TechCraft.cspr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechCraftView", "..\TechCraftView\TechCraftView.csproj", "{CE11DDFA-F650-4AA0-91CD-68373EA19F80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factory", "..\Factory\Factory.csproj", "{CF85E1E8-1E68-4924-BAB0-7D687D506521}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Factory", "..\Factory\Factory.csproj", "{CF85E1E8-1E68-4924-BAB0-7D687D506521}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITechCraft", "..\ITechCraft\ITechCraft.csproj", "{32FBBFA8-F26F-4505-8C76-6E0AC30DFF9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITechCraft", "..\ITechCraft\ITechCraft.csproj", "{32FBBFA8-F26F-4505-8C76-6E0AC30DFF9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTest", "..\ConsoleTest\ConsoleTest.csproj", "{24E8D59C-0AA7-4B49-8B1F-04C6117CB2F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{32FBBFA8-F26F-4505-8C76-6E0AC30DFF9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32FBBFA8-F26F-4505-8C76-6E0AC30DFF9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32FBBFA8-F26F-4505-8C76-6E0AC30DFF9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24E8D59C-0AA7-4B49-8B1F-04C6117CB2F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24E8D59C-0AA7-4B49-8B1F-04C6117CB2F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24E8D59C-0AA7-4B49-8B1F-04C6117CB2F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24E8D59C-0AA7-4B49-8B1F-04C6117CB2F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
