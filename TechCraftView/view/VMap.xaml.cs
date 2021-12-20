@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ITechCraft;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,13 +23,13 @@ namespace TechCraftView.view
     public partial class VMap : UserControl
     {
         private VField[,] vFields;
-        public VMap(Map world)
+        public VMap(IMap world)
         {
             InitializeComponent();
             InitFields(world.Fields);
         }
 
-        private void InitFields(Field[,] fields)
+        private void InitFields(IField[,] fields)
         {
             vFields = new VField[fields.GetLength(0), fields.GetLength(1)];
             for (uint i  = 0; i < fields.GetLength(0); i++)
@@ -44,7 +45,7 @@ namespace TechCraftView.view
             }
         }
 
-        public void SetPlayer(uint x, uint y, Player player)
+        public void SetPlayer(uint x, uint y, IPlayer player)
         {
             vFields[x, y].SetPlayer(player);
         }

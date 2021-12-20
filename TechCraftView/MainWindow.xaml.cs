@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ITechCraft;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,7 +25,7 @@ namespace TechCraftView
     public partial class MainWindow : Window
     {
         private VMap map;
-        private Game game;
+        private IGame game;
 
         public MainWindow()
         {
@@ -32,9 +33,15 @@ namespace TechCraftView
             StartGame();
         }
 
-        public void LoadPlayerData(Player player)
+        public void LoadPlayerData(IPlayer player)
         {
-            playerName.Content = player.Name;
+            var playerNameBinding = new Binding("Name")
+            {
+                Source = player
+            };
+            // Bind the data source to the TextBox control's Text dependency property
+            playerName.SetBinding(TextBlock.TextProperty, playerNameBinding);
+
             playerHealth.Content = player.Health;
             playerHealthMax.Content = player.MaxHealth;
             playerHunger.Content = player.Hunger;
@@ -45,14 +52,14 @@ namespace TechCraftView
 
         public void StartGame()
         {
-            game = TestProgram.Test();
+            game = Factory.Factory.GetGame();
             map = new(game.World);
             center.Children.Add(map);
             LoadPlayerData(game.MainPlayer);
             map.SetPlayer(game.MainPlayer.Pos.X, game.MainPlayer.Pos.Y, game.MainPlayer);
         }
 
-        private void MovePlayer(Player player, uint xOld, uint yOld)
+        private void MovePlayer(IPlayer player, uint xOld, uint yOld)
         {
             map.RemovePlayer(xOld, yOld);
             map.SetPlayer(game.MainPlayer.Pos.X, game.MainPlayer.Pos.Y, game.MainPlayer);

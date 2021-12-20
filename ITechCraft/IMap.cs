@@ -8,7 +8,7 @@ namespace ITechCraft
 {
     public interface IMap
     {
-        public IField[,] Fields { get; protected set}
+        public IField[,] Fields { get; protected set; }
         public int Width { get; protected set; }
         public int Height { get; protected set; }
 

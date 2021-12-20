@@ -10,7 +10,7 @@ namespace ITechCraft
     {
         public int Volume { get; protected set; }
 
-        public float FreeVolume { get; protected set}
+        public float FreeVolume { get; protected set; }
 
         public IItem GetItem(int index);
 

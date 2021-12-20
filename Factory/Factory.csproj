@@ -7,4 +7,9 @@
     <StartupObject />
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ITechCraft\ITechCraft.csproj" />
+    <ProjectReference Include="..\TechCraft\TechCraft.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ITechCraft;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,10 +24,10 @@ namespace TechCraftView.view
     {
 
 
-        private readonly Field field;
+        private readonly IField field;
         public static uint SIZE { get; } = 100;
 
-        public VField(Field field)
+        public VField(IField field)
         {
             this.field = field;
             InitializeComponent();
@@ -37,7 +38,7 @@ namespace TechCraftView.view
             InitItem(field.Item);
         }
 
-        private void InitItem(FieldItem item)
+        private void InitItem(IFieldItem item)
         {
             if (item != null)
             {
@@ -45,7 +46,7 @@ namespace TechCraftView.view
             }
         }
 
-        public void SetPlayer(Player player)
+        public void SetPlayer(IPlayer player)
         {
             playerLabel.Content = player.Name;
             BitmapImage bitmap = new BitmapImage();
