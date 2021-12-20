@@ -24,10 +24,10 @@ namespace TechCraft.cli
             ItemHandler ih = new ItemHandler();
 
             ih.LoadItems("griff.json");
-            Console.WriteLine(ih.Items.Count + " items");
+            Logger.LogInfo(ih.Items.Count + " items");
             foreach (model.Item it in ih.Items)
             {
-                Console.WriteLine(it.Name);
+                Logger.LogInfo(it.Name);
             }
             
         }

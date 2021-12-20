@@ -16,6 +16,7 @@ namespace TechCraft.data
     {
         public static string LogFile = "game.log";
         public static LogType Level = LogType.INFO;
+        public static bool ConsoleOutput = true;
         protected static Logger Instance = null;
 
         public static Logger GetLogger()
@@ -29,7 +30,8 @@ namespace TechCraft.data
             if (Level >= type)
             {
                 string prefix = DateTime.Now + ": " + LogTypeToString(type) + ": ";
-                File.AppendAllText(LogFile, prefix + text);
+                File.AppendAllText(LogFile, prefix + text + "\n");
+                if (ConsoleOutput) Console.WriteLine(prefix + text);
             }
         }
 
