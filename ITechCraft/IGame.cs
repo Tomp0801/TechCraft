@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ITechCraft
 {
-    interface IGame
+    public interface IGame
     {
         public IMap World { get; protected set; }
         public IPlayer MainPlayer { get; protected set; }

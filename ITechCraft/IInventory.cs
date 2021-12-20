@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ITechCraft
 {
-    interface IInventory
+    public interface IInventory
     {
         public int Volume { get; protected set; }
 

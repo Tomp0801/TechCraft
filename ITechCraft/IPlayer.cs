@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ITechCraft
 {
-    interface IPlayer
+    public interface IPlayer
     {
         public string Name { get; protected set; }
         public int Health { get; protected set; }

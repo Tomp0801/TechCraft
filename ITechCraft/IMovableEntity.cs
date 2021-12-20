@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ITechCraft
 {
-    interface IMovableEntity
+    public interface IMovableEntity
     {
         public bool Move(Direction dir);
     }

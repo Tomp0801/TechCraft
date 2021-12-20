@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ITechCraft
 {
-    interface IField
+    public interface IField
     {
         public IFieldItem Item { get; protected set; }
     }
