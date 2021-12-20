@@ -44,12 +44,17 @@ namespace TechCraftView
             {
                 Source = player
             };
-            playerHealth.SetBinding(TextBlock.TextProperty, playerNameBinding);
+            playerHealth.SetBinding(TextBlock.TextProperty, playerHealthBinding);
             var playerMaxHealthBinding = new Binding("MaxHealth")
             {
                 Source = player
             };
             playerHealthMax.SetBinding(TextBlock.TextProperty, playerMaxHealthBinding);
+            var playerHungerBinding = new Binding("Hunger")
+            {
+                Source = player
+            };
+            playerHunger.SetBinding(TextBlock.TextProperty, playerHungerBinding);
             var playerMaxHungerBinding = new Binding("MaxHunger")
             {
                 Source = player
