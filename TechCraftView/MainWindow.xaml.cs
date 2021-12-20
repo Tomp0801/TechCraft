@@ -56,14 +56,14 @@ namespace TechCraftView
                 Source = player.Name
             };
             playerName.SetBinding(TextBlock.TextProperty, playerNameBinding);
-            var playerHealthBinding = new Binding()
+            var playerHealthBinding = new Binding("Health")
             {
-                Source = player.Health
+                Source = player
             };
             playerHealth.SetBinding(TextBlock.TextProperty, playerHealthBinding);
-            var playerMaxHealthBinding = new Binding()
+            var playerMaxHealthBinding = new Binding("MaxHealth")
             {
-                Source = player.MaxHealth
+                Source = player
             };
             playerHealthMax.SetBinding(TextBlock.TextProperty, playerMaxHealthBinding);
             var playerHungerBinding = new Binding("Hunger")
@@ -71,19 +71,19 @@ namespace TechCraftView
                 Source = player
             };
             playerHunger.SetBinding(TextBlock.TextProperty, playerHungerBinding);
-            var playerMaxHungerBinding = new Binding()
+            var playerMaxHungerBinding = new Binding("MaxHunger")
             {
-                Source = player.MaxHunger
+                Source = player
             };
             playerHungerMax.SetBinding(TextBlock.TextProperty, playerMaxHungerBinding);
-            var playerThirstBinding = new Binding()
+            var playerThirstBinding = new Binding("Thirst")
             {
-                Source = player.Thirst
+                Source = player
             };
             playerThirst.SetBinding(TextBlock.TextProperty, playerThirstBinding);
-            var playerMaxThirstBinding = new Binding()
+            var playerMaxThirstBinding = new Binding("MaxThirst")
             {
-                Source = player.MaxThirst
+                Source = player
             };
             playerThirstMax.SetBinding(TextBlock.TextProperty, playerMaxThirstBinding);
         }

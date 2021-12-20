@@ -44,13 +44,13 @@
         </Grid>
         <StackPanel DockPanel.Dock="Bottom" MinHeight="200" Background="Lavender"></StackPanel>
         <StackPanel DockPanel.Dock="Left" MinWidth="200" Background="Aqua">
-            <StackPanel DockPanel.Dock="Right" MinWidth="200" Background="Aqua">
+            <StackPanel DockPanel.Dock="Right" MinWidth="300" MaxWidth="300" Background="Aqua">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <StackPanel x:Name="playerInventory"></StackPanel>
                 </ScrollViewer>
             </StackPanel>
         </StackPanel>
-        <StackPanel DockPanel.Dock="Right" MinWidth="200" Background="Aqua">
+        <StackPanel DockPanel.Dock="Right" MinWidth="300" MaxWidth="300" Background="Aqua">
             <ScrollViewer>
                 <StackPanel x:Name="msgBox"></StackPanel>
             </ScrollViewer>
