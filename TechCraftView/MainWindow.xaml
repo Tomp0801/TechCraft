@@ -43,7 +43,9 @@
             </StackPanel>
         </Grid>
         <StackPanel DockPanel.Dock="Bottom" MinHeight="200" Background="Lavender"></StackPanel>
-        <StackPanel DockPanel.Dock="Left" MinWidth="200" Background="Aqua"></StackPanel>
+        <StackPanel DockPanel.Dock="Left" MinWidth="200" Background="Aqua">
+            
+        </StackPanel>
         <StackPanel DockPanel.Dock="Right" MinWidth="200" Background="Aqua"></StackPanel>
         <Grid x:Name="center" MinHeight="1200" MinWidth="1600" Background="Green"></Grid>
     </DockPanel>

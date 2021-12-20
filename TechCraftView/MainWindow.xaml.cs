@@ -118,10 +118,27 @@ namespace TechCraftView
                         game.MainPlayer.Pos.X += 1;
                     }
                     break;
+                case Key.E:
+                    // consume item if one exist on player field
+                    ConsumeItem();
+                    break;
                 default:
                     break;
             }
             MovePlayer(game.MainPlayer, xOld, yOld);
+        }
+    
+        private void ConsumeItem()
+        {
+            IFieldItem item = game.World.Fields[game.MainPlayer.Pos.X, game.MainPlayer.Pos.Y].Item;
+            if (item != null)
+            {
+              // TODO   item.Interact(InteractionType.CONSUME);
+            }
+            else
+            {
+                Console.WriteLine("Hier ist nichts du Trottel !!!!");
+            }
         }
     }
 }
