@@ -9,9 +9,11 @@ namespace TechCraft.model
 {
     public class Field : IField
     {
-        IFieldItem IField.Item { get; set; }
+        public IFieldItem Item { get; set; }
         public Field()
         {
         }
+
+        
     }
 }

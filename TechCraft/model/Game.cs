@@ -9,9 +9,9 @@ namespace TechCraft.model
 {
     public class Game : IGame
     {
-        public Player MainPlayer { get; }
-        public Map World { get; }
-        public Game(Player player)
+        public IPlayer MainPlayer { get; protected set; }
+        public IMap World { get; protected set; }
+        public Game(IPlayer player)
         {
             MainPlayer = player;
             World = new Map(5, 5);

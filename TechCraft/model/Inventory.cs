@@ -9,11 +9,11 @@ namespace TechCraft.model
 {
     public class Inventory : IInventory
     {
-        public int Volume { get; }
+        public int Volume { get; protected set; }
 
-        protected List<Item> items;
+        protected List<IItem> items;
 
-        public float FreeVolume;
+        public float FreeVolume { get; protected set; }
 
         public Inventory(int volume)
         {
@@ -22,7 +22,7 @@ namespace TechCraft.model
             Volume = 0;
         }
 
-        public Item GetItem(int index)
+        public IItem GetItem(int index)
         {
             if (index < items.Count)
             {
@@ -33,12 +33,12 @@ namespace TechCraft.model
             }
         }
 
-        public Item[] GetAll()
+        public IItem[] GetAll()
         {
             return items.ToArray();
         }
 
-        public bool StoreItem(Item item)
+        public bool StoreItem(IItem item)
         {
             if (FreeVolume > item.Volume)
             {
@@ -51,7 +51,7 @@ namespace TechCraft.model
             }
         }
 
-        public bool Remove(Item item)
+        public bool Remove(IItem item)
         {
             return items.Remove(item);
         }

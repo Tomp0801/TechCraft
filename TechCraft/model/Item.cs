@@ -7,14 +7,15 @@ using ITechCraft;
 
 namespace TechCraft.model
 {
-    public class Item : IItem
+    public class Item : FieldItem, IItem
     {
-        public string Name { get; }
+        public string Name { get; protected set; }
 
         protected Item[] subItems;
 
-        public float Weight { get; }
-        public float Volume { get; }
+        public float Weight { get; protected set; }
+        public float Volume { get; protected set; }
+
         protected Material material;
         
         public Item()
@@ -41,7 +42,7 @@ namespace TechCraft.model
             }
         }
 
-        public Item[] Interact(InteractionType type)
+        public IItem[] Interact(InteractionType type)
         {
             Item[] retItems;
             switch (type)
