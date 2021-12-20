@@ -10,13 +10,19 @@ namespace TechCraft.model
 {
     public class Player : MovableEntity, IPlayer
     {
-        private int _hunger, _maxHunger = 100;
-        private int _health, _maxHealth = 100;
-        private int _thirst, _maxThirst = 100;
+        private float _hunger;
+        private int _maxHunger = 100;
+        private float _thirst;
+        private int _maxThirst = 100;
+        private float _health;
+        private int _maxHealth = 100;
         private bool _alive = true;
 
-        protected int myTicks = 0;
-        protected const int TICK_PERIOD = 10;
+        protected const float HEAL_MIN_HUNGER = 0.9f;
+
+        protected float hungerRate = 0.05f;
+        protected float thirstRate = 0.75f;
+        protected float healthRate = 0.05f;
 
         public IInventory Backpack { get; protected set; }
 
@@ -38,28 +44,20 @@ namespace TechCraft.model
         }
         public override void Update(int ticks)
         {
-            myTicks += ticks;
-            if (myTicks >= TICK_PERIOD)
+            // is player still alive?
+            if (Alive)
             {
-                // is player still alive?
-                if (Health == 0)
-                {
+                // update hunger and thirst
+                updateHunger(ticks * hungerRate * -1);
+                updateThirst(ticks * thirstRate * -1);
+                // if no hunger or thirst left, reduce health
+                if (Hunger == 0) updateHealth(healthRate * -1);
+                if (Thirst == 0) updateHealth(healthRate * -1);
+                // more health, if full hunger
+                if (_hunger > MaxHunger * HEAL_MIN_HUNGER) updateHealth(healthRate);
 
-                }
-                else
-                {
-                    // update hunger and thirst; if none left, reduce health
-                    if (Hunger > 0) Hunger -= 1;
-                    else Health -= 1;
-                    if (Thirst > 0) Thirst -= 1;
-                    else Health -= 1;
-                    // more health, if full hunger
-                    if (Hunger == MaxHunger * 0.9 && Health < MaxHealth)
-                    {
-                        Health += 1;
-                    }
-                }
-                myTicks -= TICK_PERIOD - 1;
+                // check if still alive
+                if (Health == 0) Alive = false;
             }
         }
 
@@ -83,10 +81,41 @@ namespace TechCraft.model
             }
         }
 
+        protected void updateHunger(float change)
+        {
+            if (_hunger > 0)
+            {
+                _hunger += change;
+                if (_hunger < 0) _hunger = 0;
+                if (_hunger > MaxHunger) _hunger = MaxHunger;
+                RaisePropertyChanged("Hunger");
+            }
+        }
+        protected void updateThirst(float change)
+        {
+            if (_thirst > 0)
+            {
+                _thirst += change;
+                if (_thirst < 0) _thirst = 0;
+                if (_thirst > MaxThirst) _thirst = MaxThirst;
+                RaisePropertyChanged("Thirst");
+            }
+        }
+        protected void updateHealth(float change)
+        {
+            if (_health > 0)
+            {
+                _health += change;
+                if (_health < 0) _health = 0;
+                if (_health > MaxHealth) _health = MaxHealth;
+                RaisePropertyChanged("Health");
+            }
+        }
+
         // Properties
         public int Hunger
         {
-            get { return _hunger; }
+            get { return (int)Math.Round(_hunger); }
             protected set
             {
                 _hunger = value;
@@ -104,7 +133,7 @@ namespace TechCraft.model
         }
         public int Health
         {
-            get { return _health; }
+            get { return (int)Math.Round(_health); }
             protected set
             {
                 _health = value;
@@ -122,7 +151,7 @@ namespace TechCraft.model
         }
         public int Thirst
         {
-            get { return _thirst; }
+            get { return (int)Math.Round(_thirst); }
             protected set
             {
                 _thirst = value;

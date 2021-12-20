@@ -27,14 +27,15 @@ namespace TechCraft.cli
 
             while (true)
             {
-                
+                Console.WriteLine(game.MainPlayer);
                 Thread.Sleep(1000);
             }
         }
 
         static void onPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            Console.WriteLine(e.PropertyName);
+            IPlayer player = (IPlayer)sender;
+            //Console.WriteLine(e.PropertyName);
         }
     }
 }
