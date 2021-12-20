@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,13 +8,28 @@ using ITechCraft;
 
 namespace TechCraft.model
 {
-    public class Player : MovableEntity, IPlayer
+    public class Player : MovableEntity, IPlayer , INotifyPropertyChanged
     {
         public string Name { get; protected set; }
+
+        private int hunger;
+
+        public int Hunger
+        {
+            get
+            {
+                return hunger;
+            }
+            set
+            {
+                hunger = value;
+                RaisePropertyChanged("Hunger");
+            }
+        }
+
         public int Health { get; protected set; }
         public int MaxHealth { get; protected set; } = 100;
-
-        public int Hunger { get; protected set; }
+        // public int Hunger { get; protected set; }
         public int MaxHunger { get; protected set; } = 100;
         public int Thirst { get; protected set; }
         public int MaxThirst { get; protected set; } = 100;
@@ -39,7 +55,8 @@ namespace TechCraft.model
             foreach (Item it in retItems)
                 Backpack.StoreItem(it);
         }
-        public override void Update(int ticks) {
+        public override void Update(int ticks)
+        {
             myTicks += ticks;
             if (myTicks >= TICK_PERIOD)
             {
@@ -55,7 +72,7 @@ namespace TechCraft.model
             }
         }
 
-        public override string ToString() 
+        public override string ToString()
         {
             string retString = Name + " - Health: " + Health;
             retString += "\nHunger: " + Hunger;
@@ -63,6 +80,16 @@ namespace TechCraft.model
             retString += "\nInventory: " + Backpack;
 
             return retString;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void RaisePropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
         }
     }
 }

@@ -33,21 +33,28 @@ namespace TechCraftView
             StartGame();
         }
 
-        public void LoadPlayerData(IPlayer player)
+        private void Refresh()
         {
-            var playerNameBinding = new Binding("Name")
+            center.Children.Add(map);
+            map.SetPlayer(game.MainPlayer.Pos.X, game.MainPlayer.Pos.Y, game.MainPlayer);
+            map.Refresh();
+        }
+
+        public void InitPlayerData(IPlayer player)
+        {
+            var playerNameBinding = new Binding()
             {
-                Source = player
+                Source = player.Name
             };
             playerName.SetBinding(TextBlock.TextProperty, playerNameBinding);
-            var playerHealthBinding = new Binding("Health")
+            var playerHealthBinding = new Binding()
             {
-                Source = player
+                Source = player.Health
             };
             playerHealth.SetBinding(TextBlock.TextProperty, playerHealthBinding);
-            var playerMaxHealthBinding = new Binding("MaxHealth")
+            var playerMaxHealthBinding = new Binding()
             {
-                Source = player
+                Source = player.MaxHealth
             };
             playerHealthMax.SetBinding(TextBlock.TextProperty, playerMaxHealthBinding);
             var playerHungerBinding = new Binding("Hunger")
@@ -55,19 +62,19 @@ namespace TechCraftView
                 Source = player
             };
             playerHunger.SetBinding(TextBlock.TextProperty, playerHungerBinding);
-            var playerMaxHungerBinding = new Binding("MaxHunger")
+            var playerMaxHungerBinding = new Binding()
             {
-                Source = player
+                Source = player.MaxHunger
             };
             playerHungerMax.SetBinding(TextBlock.TextProperty, playerMaxHungerBinding);
-            var playerThirstBinding = new Binding("Thirst")
+            var playerThirstBinding = new Binding()
             {
-                Source = player
+                Source = player.Thirst
             };
             playerThirst.SetBinding(TextBlock.TextProperty, playerThirstBinding);
-            var playerMaxThirstBinding = new Binding("MaxThirst")
+            var playerMaxThirstBinding = new Binding()
             {
-                Source = player
+                Source = player.MaxThirst
             };
             playerThirstMax.SetBinding(TextBlock.TextProperty, playerMaxThirstBinding);
         }
@@ -76,9 +83,8 @@ namespace TechCraftView
         {
             game = Factory.Factory.GetGame();
             map = new(game.World);
-            center.Children.Add(map);
-            LoadPlayerData(game.MainPlayer);
-            map.SetPlayer(game.MainPlayer.Pos.X, game.MainPlayer.Pos.Y, game.MainPlayer);
+            InitPlayerData(game.MainPlayer);
+            Refresh();
         }
 
         private void MovePlayer(IPlayer player, uint xOld, uint yOld)
@@ -133,7 +139,8 @@ namespace TechCraftView
             IFieldItem item = game.World.Fields[game.MainPlayer.Pos.X, game.MainPlayer.Pos.Y].Item;
             if (item != null)
             {
-              // TODO   item.Interact(InteractionType.CONSUME);
+                item.Interact(InteractionType.CONSUME);
+                Refresh();
             }
             else
             {

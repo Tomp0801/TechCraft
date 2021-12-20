@@ -22,8 +22,6 @@ namespace TechCraftView.view
     /// </summary>
     public partial class VField : UserControl
     {
-
-
         private readonly IField field;
         public static uint SIZE { get; } = 100;
 
@@ -35,15 +33,24 @@ namespace TechCraftView.view
             this.Height = SIZE;
             this.MaxWidth = SIZE;
             this.MaxHeight = SIZE;
-            InitItem(field.Item);
+            Refresh();
         }
 
-        private void InitItem(IFieldItem item)
+        private void LoadItem()
         {
-            if (item != null)
+            if (field.Item != null)
             {
                 itemLabel.Content = "default item";
             }
+            else
+            {
+                itemLabel.Content = "";
+            }
+        }
+
+        public void Refresh()
+        {
+            LoadItem();
         }
 
         public void SetPlayer(IPlayer player)

@@ -45,6 +45,17 @@ namespace TechCraftView.view
             }
         }
 
+        public void Refresh()
+        {
+            for (uint i = 0; i < vFields.GetLength(0); i++)
+            {
+                for (uint j = 0; j < vFields.GetLength(1); j++)
+                {
+                    vFields[i, j].Refresh();
+                }
+            }
+        }
+
         public void SetPlayer(uint x, uint y, IPlayer player)
         {
             vFields[x, y].SetPlayer(player);

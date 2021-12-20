@@ -10,12 +10,14 @@ namespace TechCraft.cli
         {
             IItem griff = new TechCraft.model.Item("Holzgriff", 0.05f, Material.WOOD);
             IItem klinge = new TechCraft.model.Item("Klinge", 0.1f, Material.METAL);
-            IItem messer = new TechCraft.model.Item("Messer", new IItem[] { griff, klinge });
+           // IFieldItem messer = new TechCraft.model.FieldItem("Messer", new IItem[] { griff, klinge });
 
             model.Player dennis = new model.Player("Dennis");
             IGame game = new model.Game(dennis);
 
-            game.World.PlaceItem(messer, 0, 4);
+            //   game.World.PlaceItem(messer, 0, 4);
+            game.Start();
+
             return game;
         }
 
