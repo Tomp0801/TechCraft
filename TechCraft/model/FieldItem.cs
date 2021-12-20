@@ -4,11 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ITechCraft;
 
 namespace TechCraft.model
 {
-    public class FieldItem : IFieldItem
+    public class FieldItem : Item, IFieldItem
     {
         public Position Pos { get; protected set; }
         public IMap CurrentMap { get; protected set; }

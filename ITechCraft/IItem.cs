@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ITechCraft
 {
-    public interface IItem : IFieldItem
+    public interface IItem
     {
         public string Name { get; }
         public float Weight { get; }

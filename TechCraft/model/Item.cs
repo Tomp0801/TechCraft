@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TechCraft.model
 {
-    public class Item : FieldItem, IItem
+    public class Item : IItem
     {
         public string Name { get; protected set; }
 
