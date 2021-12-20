@@ -12,7 +12,6 @@ namespace TechCraft.model
         public string Name { get; protected set; }
 
         protected IItem[] subItems;
-
         public float Weight { get; protected set; }
         public float Volume { get; protected set; }
 
