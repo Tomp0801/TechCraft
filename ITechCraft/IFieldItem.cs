@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ITechCraft
 {
-    public interface IFieldItem
+    public interface IFieldItem : IItem
     {
         public Position Pos { get; }
         public IMap CurrentMap { get; }
