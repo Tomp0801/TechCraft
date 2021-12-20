@@ -21,7 +21,7 @@ namespace TechCraft.model
         protected const float HEAL_MIN_HUNGER = 0.9f;
 
         protected float hungerRate = 0.05f;
-        protected float thirstRate = 0.75f;
+        protected float thirstRate = 0.075f;
         protected float healthRate = 0.05f;
 
         public IInventory Backpack { get; protected set; }
