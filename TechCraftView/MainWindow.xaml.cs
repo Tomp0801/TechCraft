@@ -35,9 +35,18 @@ namespace TechCraftView
 
         private void Refresh()
         {
-            center.Children.Add(map);
-            map.SetPlayer(game.MainPlayer.Pos.X, game.MainPlayer.Pos.Y, game.MainPlayer);
             map.Refresh();
+            LoadInventory();
+        }
+
+        private void LoadInventory()
+        {
+            IItem[] items = game.MainPlayer.Backpack.GetAll();
+            playerInventory.Children.Clear();
+            for (int i = 0;  items.Length > i; i++)
+            {
+                playerInventory.Children.Add(new VItem(items[i]));
+            }
         }
 
         public void InitPlayerData(IPlayer player)
@@ -84,6 +93,8 @@ namespace TechCraftView
             game = Factory.Factory.GetGame();
             map = new(game.World);
             InitPlayerData(game.MainPlayer);
+            center.Children.Add(map);
+            map.SetPlayer(game.MainPlayer.Pos.X, game.MainPlayer.Pos.Y, game.MainPlayer);
             Refresh();
         }
 
@@ -113,13 +124,13 @@ namespace TechCraftView
                     }
                     break;
                 case Key.S:
-                    if (game.World.Fields.GetLength(1) > game.MainPlayer.Pos.Y+1)
+                    if (game.World.Fields.GetLength(1) > game.MainPlayer.Pos.Y + 1)
                     {
                         game.MainPlayer.Pos.Y += 1;
                     }
                     break;
                 case Key.D:
-                    if (game.World.Fields.GetLength(0) > game.MainPlayer.Pos.X+1)
+                    if (game.World.Fields.GetLength(0) > game.MainPlayer.Pos.X + 1)
                     {
                         game.MainPlayer.Pos.X += 1;
                     }
@@ -128,12 +139,16 @@ namespace TechCraftView
                     // consume item if one exist on player field
                     ConsumeItem();
                     break;
+                case Key.F:
+                    // consume item if one exist on player field
+                    StoreItem();
+                    break;
                 default:
                     break;
             }
             MovePlayer(game.MainPlayer, xOld, yOld);
         }
-    
+
         private void ConsumeItem()
         {
             IFieldItem item = game.World.Fields[game.MainPlayer.Pos.X, game.MainPlayer.Pos.Y].Item;
@@ -141,11 +156,44 @@ namespace TechCraftView
             {
                 item.Interact(InteractionType.CONSUME);
                 Refresh();
+                Print("Du hast etwas mit dem Item gemacht.");
             }
             else
             {
-                Console.WriteLine("Hier ist nichts du Trottel !!!!");
+                Print("Hier ist nichts du Trottel !!!!");
             }
+        }
+
+        private void StoreItem()
+        {
+            IFieldItem item = game.World.Fields[game.MainPlayer.Pos.X, game.MainPlayer.Pos.Y].Item;
+            if (item != null)
+            {
+                bool success = game.MainPlayer.Backpack.StoreItem(item);
+                if (!success)
+                {
+                    Print("Ich glaube das Teil kannst du nicht tragen. Srry");
+                }
+                else
+                {
+                    Refresh();
+                    Print("Du hast ein item aufgenommen. Das hast du echt toll gemacht !!! ");
+                }
+            }
+            else
+            {
+                Print("Siehst du etwas was ich nicht sehen kann? Hier ist nichts zum aufheben !!!!");
+            }
+        }
+
+        public void Print(string msg)
+        {
+            TextBlock textBlock = new()
+            {
+                Text = msg,
+                Margin = new Thickness(10, 10, 10, 10)
+            };
+            msgBox.Children.Insert(0, textBlock);
         }
     }
 }

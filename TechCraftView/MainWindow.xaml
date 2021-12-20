@@ -24,7 +24,7 @@
                 <TextBlock x:Name="playerName" FontSize="24">Unbekannter Spieler</TextBlock>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center">
-                <TextBlock>Hunger: </TextBlock>
+                <TextBlock>Hunger:</TextBlock>
                 <TextBlock x:Name="playerHunger"></TextBlock>
                 <TextBlock>/</TextBlock>
                 <TextBlock x:Name="playerHungerMax"></TextBlock>
@@ -44,9 +44,17 @@
         </Grid>
         <StackPanel DockPanel.Dock="Bottom" MinHeight="200" Background="Lavender"></StackPanel>
         <StackPanel DockPanel.Dock="Left" MinWidth="200" Background="Aqua">
-            
+            <StackPanel DockPanel.Dock="Right" MinWidth="200" Background="Aqua">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel x:Name="playerInventory"></StackPanel>
+                </ScrollViewer>
+            </StackPanel>
         </StackPanel>
-        <StackPanel DockPanel.Dock="Right" MinWidth="200" Background="Aqua"></StackPanel>
+        <StackPanel DockPanel.Dock="Right" MinWidth="200" Background="Aqua">
+            <ScrollViewer>
+                <StackPanel x:Name="msgBox"></StackPanel>
+            </ScrollViewer>
+        </StackPanel>
         <Grid x:Name="center" MinHeight="1200" MinWidth="1600" Background="Green"></Grid>
     </DockPanel>
 </Window>
