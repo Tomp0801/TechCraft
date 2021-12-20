@@ -39,15 +39,32 @@ namespace TechCraftView
             {
                 Source = player
             };
-            // Bind the data source to the TextBox control's Text dependency property
             playerName.SetBinding(TextBlock.TextProperty, playerNameBinding);
-
-            playerHealth.Content = player.Health;
-            playerHealthMax.Content = player.MaxHealth;
-            playerHunger.Content = player.Hunger;
-            playerHungerMax.Content = player.MaxHunger;
-            playerThirst.Content = player.Thirst;
-            playerThirstMax.Content = player.MaxThirst;
+            var playerHealthBinding = new Binding("Health")
+            {
+                Source = player
+            };
+            playerHealth.SetBinding(TextBlock.TextProperty, playerNameBinding);
+            var playerMaxHealthBinding = new Binding("MaxHealth")
+            {
+                Source = player
+            };
+            playerHealthMax.SetBinding(TextBlock.TextProperty, playerMaxHealthBinding);
+            var playerMaxHungerBinding = new Binding("MaxHunger")
+            {
+                Source = player
+            };
+            playerHungerMax.SetBinding(TextBlock.TextProperty, playerMaxHungerBinding);
+            var playerThirstBinding = new Binding("Thirst")
+            {
+                Source = player
+            };
+            playerThirst.SetBinding(TextBlock.TextProperty, playerThirstBinding);
+            var playerMaxThirstBinding = new Binding("MaxThirst")
+            {
+                Source = player
+            };
+            playerThirstMax.SetBinding(TextBlock.TextProperty, playerMaxThirstBinding);
         }
 
         public void StartGame()
