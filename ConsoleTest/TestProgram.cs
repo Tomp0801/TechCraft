@@ -23,11 +23,7 @@ namespace TechCraft.cli
         {
             ItemHandler ih = new ItemHandler();
 
-            model.Item griff = new TechCraft.model.Item("Holzgriff", 0.05f, Material.WOOD);
-            ItemHandler.StoreSingleItem(griff, "griff.json");
-
-
-            ih.LoadSingleItem("griff.json");
+            ih.LoadItems("griff.json");
             Console.WriteLine(ih.Items.Count + " items");
             foreach (model.Item it in ih.Items)
             {

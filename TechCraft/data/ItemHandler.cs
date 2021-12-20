@@ -16,6 +16,25 @@ namespace TechCraft.data
         {
             Items = new List<Item>();
         }
+        public bool LoadItems(string file)
+        {
+            Item[] items;
+            try
+            {
+                string jsonString = File.ReadAllText(file);
+                JsonSerializerOptions options = new JsonSerializerOptions(JsonSerializerDefaults.General);
+                items = JsonSerializer.Deserialize<Item[]>(jsonString, options);
+            }
+            catch (IOException e)
+            {
+                Logger.LogError(e.Message);
+                return false;
+            }
+
+            foreach (Item it in items) Items.Add(it);
+
+            return true;
+        }
         public bool LoadSingleItem(string file)
         {
             Item item;
