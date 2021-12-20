@@ -7,9 +7,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="assets\player.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Factory\Factory.csproj" />
     <ProjectReference Include="..\ITechCraft\ITechCraft.csproj" />
     <ProjectReference Include="..\TechCraft\TechCraft.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="assets\character.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="assets\grass.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

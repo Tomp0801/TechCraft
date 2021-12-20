@@ -43,17 +43,20 @@
             </StackPanel>
         </Grid>
         <StackPanel DockPanel.Dock="Bottom" MinHeight="200" Background="Lavender"></StackPanel>
-        <StackPanel DockPanel.Dock="Left" MinWidth="200" Background="Aqua">
-            <StackPanel DockPanel.Dock="Right" MinWidth="300" MaxWidth="300" Background="Aqua">
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <StackPanel x:Name="playerInventory"></StackPanel>
+        <StackPanel DockPanel.Dock="Left" Width="300" Background="Aqua">
+            <StackPanel>
+                <ScrollViewer Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type Border}},Path=ActualHeight}" >
+                    <StackPanel x:Name="playerInventory">
+                    </StackPanel>
                 </ScrollViewer>
             </StackPanel>
         </StackPanel>
-        <StackPanel DockPanel.Dock="Right" MinWidth="300" MaxWidth="300" Background="Aqua">
-            <ScrollViewer>
+        <StackPanel DockPanel.Dock="Right" Width="300"  Background="Aqua">
+            <StackPanel>
+                <ScrollViewer Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type Border}},Path=ActualHeight}" >
                 <StackPanel x:Name="msgBox"></StackPanel>
             </ScrollViewer>
+            </StackPanel>
         </StackPanel>
         <Grid x:Name="center" MinHeight="1200" MinWidth="1600" Background="Green"></Grid>
     </DockPanel>
